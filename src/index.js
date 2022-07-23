@@ -16,11 +16,13 @@ function* rootSaga() {
     yield takeEvery('FETCH_MOVIES', fetchAllMovies);
 }
 
+//! GET => REFRESH DOM
 function* fetchAllMovies() {
     // get all movies from the DB
     try {
         const movies = yield axios.get('/api/movie');
         console.log('get all:', movies.data);
+        //! storing in redux
         yield put({ type: 'SET_MOVIES', payload: movies.data });
 
     } catch {
