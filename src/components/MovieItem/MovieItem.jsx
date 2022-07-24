@@ -1,15 +1,21 @@
 import React from 'react';
 //* import history
 import { useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 export default function MovieItem({ movie }) {
     //* useHistory
     const history = useHistory();
+    const dispatch = useDispatch();
 
     //* handleClick
     const handleClick = () => {
-        console.log(`History is:`, history);
-        //change view => useHistory => argument is where you want to go
+        //GET ALL GENRES
+        // dispatch({
+        //     type: 'FETCH_GENRES',
+        //     payload: movie.id,
+        // });
+        //* useHistory
         history.push(`/details/${movie.id}`);
     };
 

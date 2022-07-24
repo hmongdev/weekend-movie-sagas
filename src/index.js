@@ -14,6 +14,8 @@ import axios from 'axios';
 // Create the rootSaga generator function
 function* rootSaga() {
     yield takeEvery('FETCH_MOVIES', fetchAllMovies);
+    yield takeEvery('FETCH_DETAILS', fetchMovie);
+    // yield takeEvery('FETCH_GENRES', fetchGenres);
 }
 
 //! GET => REFRESH DOM
@@ -25,9 +27,30 @@ function* fetchAllMovies() {
         //! storing in redux
         yield put({ type: 'SET_MOVIES', payload: movies.data });
     } catch {
-        console.log('get all error');
+        console.log('ERR in fetchAllMovies');
     }
 }
+
+//! How does it know which movie to pull from?
+function* fetchMovie() {
+    // get specific movie
+    try {
+        const movies = yield axios.get('/api/movie');
+        yield put({ type: 'FETCH_DETAILS', payload: movies.id });
+    } catch {
+        console.log('ERR in fetchMovie');
+    }
+}
+//genre
+// function* fetchGenres() {
+//     // get specific movie
+//     try {
+//         const movies = yield axios.get('/api/genre');
+//         yield put({ type: 'FETCH_GENRES', payload: movies.id });
+//     } catch {
+//         console.log('ERR in fetchGenres');
+//     }
+// }
 
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();
