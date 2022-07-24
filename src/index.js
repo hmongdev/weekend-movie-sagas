@@ -24,11 +24,9 @@ function* fetchAllMovies() {
         console.log('get all:', movies.data);
         //! storing in redux
         yield put({ type: 'SET_MOVIES', payload: movies.data });
-
     } catch {
         console.log('get all error');
     }
-        
 }
 
 // Create sagaMiddleware
@@ -42,7 +40,7 @@ const movies = (state = [], action) => {
         default:
             return state;
     }
-}
+};
 
 // Used to store the movie genres
 const genres = (state = [], action) => {
@@ -52,7 +50,7 @@ const genres = (state = [], action) => {
         default:
             return state;
     }
-}
+};
 
 // Create one store that all components can use
 const storeInstance = createStore(
@@ -61,7 +59,7 @@ const storeInstance = createStore(
         genres,
     }),
     // Add sagaMiddleware to our store
-    applyMiddleware(sagaMiddleware, logger),
+    applyMiddleware(sagaMiddleware, logger)
 );
 
 // Pass rootSaga into our sagaMiddleware
@@ -70,7 +68,7 @@ sagaMiddleware.run(rootSaga);
 ReactDOM.render(
     <React.StrictMode>
         <Provider store={storeInstance}>
-        <App />
+            <App />
         </Provider>
     </React.StrictMode>,
     document.getElementById('root')
