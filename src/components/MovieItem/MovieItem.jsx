@@ -11,10 +11,10 @@ export default function MovieItem({ movie }) {
     //* handleClick
     const handleClick = () => {
         //GET ALL GENRES
-        // dispatch({
-        //     type: 'FETCH_GENRES',
-        //     payload: movie.id,
-        // });
+        dispatch({
+            type: 'FETCH_GENRES',
+            payload: movie.id,
+        });
         //* useHistory
         history.push(`/details/${movie.id}`);
     };

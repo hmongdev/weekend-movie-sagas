@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom';
 export default function Details() {
     //* bring in movies store
     const movies = useSelector((store) => store.movies);
+    const genres = useSelector((store) => store.genres);
     const history = useHistory();
     const { id } = useParams();
 
@@ -18,10 +19,10 @@ export default function Details() {
         <div>
             <section>
                 <h1>Movie Details</h1>
-                <p>Movie Title: {movies[id - 1].title}</p>
-                <p>Movie Id: {movies[id - 1].id}</p>
-                <p>Movie Desc:{movies[id - 1].description}</p>
                 <img src={movies[id - 1].poster}></img>
+                <h1>{movies[id - 1].title}</h1>
+                <h4>{movies[id - 1].description}</h4>
+                <p>{genres[0].name}</p>
             </section>
             <button onClick={returnHome}>Home</button>
         </div>

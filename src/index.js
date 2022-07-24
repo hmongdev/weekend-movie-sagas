@@ -14,8 +14,9 @@ import axios from 'axios';
 // Create the rootSaga generator function
 function* rootSaga() {
     yield takeEvery('FETCH_MOVIES', fetchAllMovies);
+    //change this action type
     yield takeEvery('FETCH_DETAILS', fetchMovie);
-    // yield takeEvery('FETCH_GENRES', fetchGenres);
+    yield takeEvery('FETCH_GENRES', fetchGenres);
 }
 
 //! GET => REFRESH DOM
@@ -26,6 +27,7 @@ function* fetchAllMovies() {
         console.log('get all:', movies.data);
         //! storing in redux
         yield put({ type: 'SET_MOVIES', payload: movies.data });
+        yield put({ type: 'SET_GENRES', payload: genres.data });
     } catch {
         console.log('ERR in fetchAllMovies');
     }
@@ -33,7 +35,7 @@ function* fetchAllMovies() {
 
 //! How does it know which movie to pull from?
 function* fetchMovie() {
-    // get specific movie
+    //* get specific movie
     try {
         const movies = yield axios.get('/api/movie');
         yield put({ type: 'FETCH_DETAILS', payload: movies.id });
@@ -42,15 +44,15 @@ function* fetchMovie() {
     }
 }
 //genre
-// function* fetchGenres() {
-//     // get specific movie
-//     try {
-//         const movies = yield axios.get('/api/genre');
-//         yield put({ type: 'FETCH_GENRES', payload: movies.id });
-//     } catch {
-//         console.log('ERR in fetchGenres');
-//     }
-// }
+function* fetchGenres(action) {
+    // get specific movie
+    try {
+        const genres = yield axios.get(`/api/genre/${action.payload}`);
+        yield put({ type: 'SET_GENRES', payload: genres.data });
+    } catch {
+        console.log('ERR in fetchGenres');
+    }
+}
 
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();
@@ -66,7 +68,7 @@ const movies = (state = [], action) => {
 };
 
 // Used to store the movie genres
-const genres = (state = [], action) => {
+const genres = (state = [''], action) => {
     switch (action.type) {
         case 'SET_GENRES':
             return action.payload;
