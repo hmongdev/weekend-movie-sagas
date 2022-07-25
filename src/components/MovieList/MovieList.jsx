@@ -8,7 +8,7 @@ function MovieList() {
     const dispatch = useDispatch();
     const movies = useSelector((store) => store.movies);
 
-    //useEffect
+    //useEffect => on page load, GET all movies
     useEffect(() => {
         dispatch({ type: 'FETCH_MOVIES' });
     }, []);
