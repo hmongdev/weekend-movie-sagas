@@ -27,7 +27,6 @@ function* fetchAllMovies() {
         console.log('get all:', movies.data);
         //! storing in redux
         yield put({ type: 'SET_MOVIES', payload: movies.data });
-        yield put({ type: 'SET_GENRES', payload: genres.data });
     } catch {
         console.log('ERR in fetchAllMovies');
     }
