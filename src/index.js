@@ -21,7 +21,7 @@ function* rootSaga() {
 
 //! GET => REFRESH DOM
 function* fetchAllMovies() {
-    // get all movies from the DB
+    //* get all movies from the DB
     try {
         const movies = yield axios.get('/api/movie');
         console.log('get all:', movies.data);
@@ -33,9 +33,8 @@ function* fetchAllMovies() {
     }
 }
 
-//! How does it know which movie to pull from?
+//! 1. fetchMovie => gets specific movie
 function* fetchMovie() {
-    //* get specific movie
     try {
         const movies = yield axios.get('/api/movie');
         yield put({ type: 'FETCH_DETAILS', payload: movies.id });
@@ -43,7 +42,7 @@ function* fetchMovie() {
         console.log('ERR in fetchMovie');
     }
 }
-//genre
+//! 2. genre
 function* fetchGenres(action) {
     // get specific movie
     try {
