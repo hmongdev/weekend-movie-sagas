@@ -45,6 +45,7 @@ function* fetchMovie() {
 //! 2. fetchGenres => gets ALL genres for a specific movie
 function* fetchGenres(action) {
     try {
+        //* this will go to genre.router.js
         const genres = yield axios.get(`/api/genre/${action.payload}`);
         yield put({ type: 'SET_GENRES', payload: genres.data });
     } catch {
