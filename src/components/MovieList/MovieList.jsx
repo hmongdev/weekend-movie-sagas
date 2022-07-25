@@ -10,7 +10,9 @@ function MovieList() {
 
     //useEffect => on page load, GET all movies
     useEffect(() => {
-        dispatch({ type: 'FETCH_MOVIES' });
+        dispatch({
+            type: 'FETCH_MOVIES',
+        });
     }, []);
 
     return (
