@@ -20,8 +20,7 @@ export default function MovieItem({ movie }) {
     };
 
     return (
-        <div key={movie.id}>
-            <h3>{movie.title}</h3>
+        <div className="movie-item" key={movie.id}>
             <img onClick={handleClick} src={movie.poster} alt={movie.title} />
         </div>
     );

@@ -1,24 +1,74 @@
 .App {
-  text-align: center;
+    text-align: center;
 }
 
+body {
+    background-color: rgb(0, 0, 0);
+    font-family: 'Muli', sans-serif;
+}
+
+button {
+    padding: 0.5rem;
+    background-color: red;
+    color: white;
+    border-radius: 5px;
+    font-size: x-large;
+    margin: 1rem;
+}
+
+section.movies {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+div.movie-item {
+    padding: 2rem;
+}
+
+h1,
+h3,
+h4 {
+    color: white;
+}
+
+h4 {
+    font-style: italic;
+    width: 50%;
+    text-align: center;
+    margin: auto;
+}
+
+img {
+    min-width: 10rem;
+    min-height: 15rem;
+}
+
+img:hover {
+    box-shadow: 15px 15px 15px 1px gray;
+    /* transform: scale(1.1);
+    transition: all 1s ease; */
+}
 
 .App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+    height: 150px;
+    padding: 20px;
 }
 
 .App-title {
-  font-size: 1.5em;
+    font-size: 1.5em;
 }
 
 .App-intro {
-  font-size: large;
+    font-size: large;
 }
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
