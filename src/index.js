@@ -42,7 +42,7 @@ function* fetchMovie() {
         console.log('ERR in fetchMovie');
     }
 }
-//! 2. genre
+//! 2. fetchGenres => gets ALL genres for a specific movie
 function* fetchGenres(action) {
     // get specific movie
     try {
