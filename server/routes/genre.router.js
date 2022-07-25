@@ -5,7 +5,7 @@ const pool = require('../modules/pool');
 router.get('/:id', (req, res) => {
     //! Add query to get all genres
     //? After creating this route, now we're able to see details/:id show up
-    
+
     const genreId = req.params.id;
     console.log(`GenreId:`, genreId);
 

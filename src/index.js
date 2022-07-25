@@ -11,7 +11,8 @@ import createSagaMiddleware from 'redux-saga';
 import { takeEvery, put } from 'redux-saga/effects';
 import axios from 'axios';
 
-// Create the rootSaga generator function
+//! Create the rootSaga generator function => FBI
+//* ALWAYS LISTENING
 function* rootSaga() {
     yield takeEvery('FETCH_MOVIES', fetchAllMovies);
     //change this action type
@@ -19,7 +20,6 @@ function* rootSaga() {
     yield takeEvery('FETCH_GENRES', fetchGenres);
 }
 
-//! GET => REFRESH DOM
 function* fetchAllMovies() {
     //* get all movies from the DB
     try {
@@ -44,7 +44,6 @@ function* fetchMovie() {
 }
 //! 2. fetchGenres => gets ALL genres for a specific movie
 function* fetchGenres(action) {
-    // get specific movie
     try {
         const genres = yield axios.get(`/api/genre/${action.payload}`);
         yield put({ type: 'SET_GENRES', payload: genres.data });
