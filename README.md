@@ -38,15 +38,15 @@ How does someone use this application? Tell a user story here.
 
 1. A user can click on a movie on the home page
 2. Clicking on a movie will take them to a details page for that specific movie
-3. 
-4. xxx
-5. xxx
-6. xxx
-
+3. The user can read the description and see the genres of the movie here.
+4. The user can click the `Home` button on the details page that brings them back to all the movies list
 
 ## Built With
-
-List technologies and frameworks here
+Node
+React
+Redux
+Axios
+PostGRES
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
