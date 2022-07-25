@@ -47,8 +47,8 @@ img {
 
 img:hover {
     box-shadow: 15px 15px 15px 1px gray;
-    /* transform: scale(1.1);
-    transition: all 1s ease; */
+    transform: scale(1.05);
+    transition: all 1s ease;
 }
 
 .App-header {
