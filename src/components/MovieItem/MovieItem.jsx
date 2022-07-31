@@ -15,6 +15,7 @@ export default function MovieItem({ movie }) {
             type: 'FETCH_GENRES',
             payload: movie.id,
         });
+        //* useHistory
         history.push(`/details/${movie.id}`);
     };
 
